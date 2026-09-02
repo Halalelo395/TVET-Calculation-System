@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from API.schemas import TestMarks
 
-router = FastAPI()
+app = FastAPI()
 
 def calculate(mark: TestMarks):
     test_1 = mark.test1 * 0.2
@@ -11,7 +11,7 @@ def calculate(mark: TestMarks):
     results = total
     return  results
 
-@router.post("/result")
+@app.post("/result")
 def results(marks: TestMarks):
     final = calculate(marks)
     if final >= 40:
